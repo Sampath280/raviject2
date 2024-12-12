@@ -7,7 +7,7 @@
     <script>
         // Fetch data from Flask API and update the page
         window.onload = function() {
-            fetch('http://localhost:5000/hello')  // Change this URL for production or use relative path
+            fetch('https://sampath-a0b9gaaqhndgadcm.canadacentral-01.azurewebsites.net/hello')  // Change this URL for production or use relative path
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
