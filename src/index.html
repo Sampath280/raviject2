@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Frontend</title>
+    <script>
+        // Fetch data from Flask API and update the page
+        window.onload = function() {
+            fetch('http://localhost:5000/hello')  // Change this URL for production or use relative path
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById('message').textContent = data.message;
+                    document.getElementById('description').textContent = data.description;
+                })
+                .catch(error => console.log('Error fetching data:', error));
+        };
+    </script>
+</head>
+<body>
+    <h1 id="message">Loading message...</h1>
+    <p id="description">Loading description...</p>
+</body>
+</html>
